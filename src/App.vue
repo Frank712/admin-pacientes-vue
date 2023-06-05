@@ -1,5 +1,22 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import Header from "./components/Header.vue";
+import Formulario from "./components/Formulario.vue";
+const pacientes = ref([]);
+</script>
 
 <template>
-  <h1 class="text-6xl">Hola Mundo, tailwind!</h1>
+  <div class="container mx-auto mt-20">
+    <Header />
+    <div class="mt-12 md:flex">
+      <Formulario />
+      <div class="md:w-1/2 md:h-screen overflow-y-scroll">
+        <h3 class="font-black text-3xl text-center">
+          Administra tus pacientes
+        </h3>
+        <div v-if="pacientes.length > 0"></div>
+        <div v-else class="mt-10 text-2xl text-center">No hay pacientes</div>
+      </div>
+    </div>
+  </div>
 </template>
